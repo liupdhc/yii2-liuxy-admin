@@ -40,9 +40,9 @@ $this->title = Module::t('login.title');?>
     <!-- BEGIN LOGIN FORM -->
     <?php $form = ActiveForm::begin(['id' => 'login-form','action'=>'','options'=>['onsubmit'=>'return false;']]); ?>
     <h3 class="form-title"><?=Module::t( 'login.title')?></h3>
-    <?= $form->field('username')->textInput(['placeholder'=>'login.username',
+    <?= $form->field('username')->textInput(['placeholder'=>Module::t( 'login.username'),
         'icon'=>'fa fa-user','autocomplete'=>'off']) ?>
-    <?= $form->field('password')->passwordInput(['placeholder'=>'login.password',
+    <?= $form->field('password')->passwordInput(['placeholder'=>Module::t( 'login.password'),
         'icon'=>'fa fa-lock','autocomplete'=>'off']) ?>
     <div class="form-group">
             <button type="submit" id="btn-submit" class="btn green-haze pull-right">
