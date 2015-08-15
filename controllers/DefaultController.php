@@ -8,10 +8,8 @@ namespace liuxy\admin\controllers;
 
 use liuxy\admin\components\Controller;
 use liuxy\admin\models\AdminUser;
-use oshop\site\Module;
-use yii\base\Security;
+use liuxy\admin\Module;
 use yii\helpers\Url;
-use yii\web\Cookie;
 
 /**
  * Backend default controller.
