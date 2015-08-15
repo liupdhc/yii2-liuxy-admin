@@ -19,6 +19,6 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.4",
-        "liuxy/yii2-themes": "minimum-stability"
+        "liuxy/yii2-themes": "1.0.0.0"
     }
 }
