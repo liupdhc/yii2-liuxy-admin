@@ -83,20 +83,18 @@ CREATE TABLE `permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`) USING BTREE,
   KEY `link` (`link`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8 COMMENT='权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='权限表';
 
 -- ----------------------------
 -- Records of permission
 -- ----------------------------
 INSERT INTO `permission` VALUES ('1', '0', '顶级权限', null, null, '0', '0', '0', '1', null, null, null, '1436584083', '1', '0', null);
-INSERT INTO `permission` VALUES ('71', '1', '系统管理', '', '', '0', '1', '0', '1', '1435406080', null, null, '1436589386', '2', '2', 'icon-list');
-INSERT INTO `permission` VALUES ('72', '1', '商品主数据', '', 'product/index', '1', '1', '0', '1', '1435406119', null, null, '1436474109', '2', '0', 'icon-list');
-INSERT INTO `permission` VALUES ('73', '1', '用户主数据', '', '', '1', '1', '0', '1', '1435406150', null, null, '1436473543', '2', '1', 'icon-list');
-INSERT INTO `permission` VALUES ('98', '71', '用户与权限', '', '#', '0', '1', '0', '1', '1435436426', null, null, '1435437358', '3', '0', 'icon-list');
-INSERT INTO `permission` VALUES ('99', '98', '用户管理', '', 'admin/user/index', '1', '1', '0', '1', '1435436470', null, null, '1435436470', '4', '2', 'icon-user');
-INSERT INTO `permission` VALUES ('100', '98', '权限管理', '', 'admin/permission/index', '1', '1', '0', '1', '1435436482', null, null, '1435436691', '4', '0', 'icon-list');
-INSERT INTO `permission` VALUES ('101', '98', '角色管理', '', 'admin/role/index', '1', '1', '0', '1', '1435436494', null, null, '1435440279', '4', '1', '');
-INSERT INTO `permission` VALUES ('102', '1', '全局设置', '', '', '1', '1', '0', '1', '1436578365', null, null, '1436635769', '2', '3', 'icon-list');
+INSERT INTO `permission` VALUES ('2', '1', '系统管理', '', '', '0', '1', '0', '1', '1435406080', null, null, '1436589386', '2', '2', 'icon-list');
+INSERT INTO `permission` VALUES ('3', '2', '用户与权限', '', '#', '0', '1', '0', '1', '1435436426', null, null, '1435437358', '3', '0', 'icon-list');
+INSERT INTO `permission` VALUES ('4', '2', '用户管理', '', 'admin/user/index', '1', '1', '0', '1', '1435436470', null, null, '1435436470', '4', '2', 'icon-user');
+INSERT INTO `permission` VALUES ('5', '2', '权限管理', '', 'admin/permission/index', '1', '1', '0', '1', '1435436482', null, null, '1435436691', '4', '0', 'icon-list');
+INSERT INTO `permission` VALUES ('6', '2', '角色管理', '', 'admin/role/index', '1', '1', '0', '1', '1435436494', null, null, '1435440279', '4', '1', '');
+INSERT INTO `permission` VALUES ('7', '1', '全局设置', '', '', '1', '1', '0', '1', '1436578365', null, null, '1436635769', '2', '3', 'icon-list');
 
 -- ----------------------------
 -- Table structure for role
@@ -134,16 +132,9 @@ CREATE TABLE `role_permission` (
   UNIQUE KEY `role_permission` (`role_id`,`permission_id`),
   KEY `role_id` (`role_id`) USING BTREE,
   KEY `permission_id` (`permission_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8 COMMENT='角色权限关联表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色权限关联表';
 
 -- ----------------------------
 -- Records of role_permission
 -- ----------------------------
-INSERT INTO `role_permission` VALUES ('137', '1', '72', '1436464808', null);
-INSERT INTO `role_permission` VALUES ('138', '1', '73', '1436464808', null);
-INSERT INTO `role_permission` VALUES ('139', '1', '100', '1436464808', null);
-INSERT INTO `role_permission` VALUES ('140', '1', '101', '1436464808', null);
-INSERT INTO `role_permission` VALUES ('141', '1', '99', '1436464808', null);
-INSERT INTO `role_permission` VALUES ('142', '1', '98', '1436464808', null);
-INSERT INTO `role_permission` VALUES ('143', '1', '1', '1436464809', null);
-INSERT INTO `role_permission` VALUES ('144', '1', '71', '1436464809', null);
+INSERT INTO `role_permission`(role_id,permission_id,insert_time,insert_by) select 1,id,time(),'admin' from permission;
