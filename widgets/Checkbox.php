@@ -84,6 +84,7 @@ class Checkbox extends Widget {
     public function run() {
         $content = '';
         if ($this->label) {
+            Html::addCssClass($this->labelOptions,'col-md-4');
             $content.=Html::tag('label',$this->label,$this->labelOptions);
         }
         $content.=Html::beginTag('div',$this->options);
