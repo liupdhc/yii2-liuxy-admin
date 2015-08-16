@@ -46,6 +46,13 @@ interface IMenu {
     public static function generatorTree($data);
 
     /**
+     * 生成前端使用的Select元素
+     * @param $data array   数组元素必须包含level（表示在树结构中的层级）和name（元素名称）属性，函数将为每个元素
+     * 添加selectStr属性用于前端显示
+     */
+    public static function generatorSelect(&$data);
+
+    /**
      * 设置菜单选中
      * @param array $menus    菜单列表
      * @param array $mappingItems 需要设置选中的菜单对应关系数组

@@ -2,6 +2,7 @@
 namespace liuxy\admin\components;
 
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\helpers\VarDumper;
 use liuxy\admin\models\Permission;
 
@@ -72,7 +73,7 @@ abstract class DefaultIMenuImpl extends \yii\liuxy\ActiveRecord implements \liux
     /**
      * @inheritDoc
      */
-    public static function getAllSub($parentId, $filter = []) {
+    public static function getAllSub($parentId = 0, $filter = []) {
         // TODO: Implement getAllSub() method.
         $category = self::findeByCache($parentId);
         if ($category) {
@@ -269,6 +270,28 @@ abstract class DefaultIMenuImpl extends \yii\liuxy\ActiveRecord implements \liux
             }
         }
     }
+
+    /**
+     * @inheritDoc
+     */
+    public static function generatorSelect(&$data) {
+        // TODO: Implement generatorSelect() method.
+        foreach($data as &$item) {
+            if (!isset($item['level'])) {
+                throw new InvalidConfigException('item must be contain `level` attribute');
+            }
+            if (!isset($item['name'])) {
+                throw new InvalidConfigException('item must be contain `name` attribute');
+            }
+            $level = intval($item['level']);
+            $item['selectStr'] = '|';
+            for($i = 0; $i < $level; $i++) {
+                $item['selectStr'].='--';
+            }
+            $item['selectStr'] .= $item['name'];
+        }
+    }
+
 
     /**
      * 获取默认顶级类目
