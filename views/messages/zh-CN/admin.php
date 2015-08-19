@@ -49,10 +49,10 @@ return [
     'status.no'=>'无效',
     //首页
     'index'=>'首页',
-    'index.title'=>'Yii2范例',
+    'index.title'=>'首页范例',
     'index.dashboard'=>'仪表盘',
     //尾部
-    'footer.copyright'=>'2015 &copy; Admin Template By OShop.',
+    'footer.copyright'=>'2015 &copy; Admin Template By liupeng.',
     //个人页
     'user.info'=>'个人信息',
     'user.logout'=>'退出',
