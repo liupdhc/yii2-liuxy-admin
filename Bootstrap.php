@@ -25,7 +25,7 @@ class Bootstrap implements BootstrapInterface {
         if (!isset($app->i18n->translations['liuxy/admin']) && !isset($app->i18n->translations['liuxy/*'])) {
             $app->i18n->translations['liuxy/admin'] = [
                 'class' => 'yii\i18n\PhpMessageSource',
-                'basePath' => '@liuxy/admin/messages',
+                'basePath' => '@liuxy/admin/views/messages',
                 'forceTranslation' => true,
                 'fileMap' => [
                     'liuxy/admin' => 'admin.php',
