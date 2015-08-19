@@ -81,8 +81,9 @@ CREATE TABLE `permission` (
   `seq` int(5) DEFAULT '0' COMMENT '排列序号',
   `icon` varchar(50) DEFAULT NULL COMMENT '图标样式',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`) USING BTREE,
-  KEY `link` (`link`) USING BTREE
+  UNIQUE KEY `name` (`parent_id`,`name`) USING BTREE,
+  KEY `link` (`link`) USING BTREE,
+  KEY `parent_id` (`parent_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='权限表';
 
 -- ----------------------------

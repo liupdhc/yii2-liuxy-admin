@@ -53,7 +53,7 @@ class Permission extends DefaultIMenuImpl {
             [['name', 'insert_by', 'update_by'], 'string', 'max' => 32],
             [['description', 'link'], 'string', 'max' => 100],
             [['icon'], 'string', 'max' => 50],
-            [['name'], 'unique']
+            [['parent_id','name'], 'unique']
         ];
     }
 
