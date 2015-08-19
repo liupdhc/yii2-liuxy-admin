@@ -37,7 +37,7 @@ abstract class Controller extends WebController {
             if (!AdminUser::hasPermission($this->user->id, $action->controller->route)) {
                 if (!in_array($action->id,['deny', 'login', 'logout', ''])) {
                     if ($this->request->getIsAjax()) {
-                        $this->setError('deny', 403);
+                        $this->setError(Module::t('deny'), 403);
                     } else {
                         $this->redirect(Url::toRoute('/admin/default/deny'));
                     }
