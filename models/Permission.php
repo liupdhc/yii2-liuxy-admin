@@ -4,7 +4,6 @@ namespace liuxy\admin\models;
 
 use liuxy\admin\components\DefaultIMenuImpl;
 use Yii;
-use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "permission".
@@ -53,7 +52,7 @@ class Permission extends DefaultIMenuImpl {
             [['name', 'insert_by', 'update_by'], 'string', 'max' => 32],
             [['description', 'link'], 'string', 'max' => 100],
             [['icon'], 'string', 'max' => 50],
-            [['parent_id','name'], 'unique']
+            [['parent_id', 'name'], 'unique', 'targetAttribute' => ['parent_id', 'name'], 'message' => 'The combination of 父级权限ID and 权限名称 has already been taken.']
         ];
     }
 
