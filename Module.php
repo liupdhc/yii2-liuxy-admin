@@ -10,6 +10,13 @@ use Yii;
 class Module extends \yii\base\Module {
 
     public static function t( $message, $params = [], $language = null) {
-        return Yii::t('liuxy/admin', $message, $params, $language);
+        $content = $message;
+        if (isset(Yii::$app->i18n->translations['common/backend'])) {
+            $content = Yii::t('common/backend', $message, $params, $language);
+        }
+        if ($content == $message) {
+            $content = Yii::t('liuxy/admin', $message, $params, $language);
+        }
+        return $content;
     }
 }
