@@ -47,6 +47,9 @@ return [
     'login.rememberme'=>'记住我',
     'status.ok'=>'有效',
     'status.no'=>'无效',
+    'navigation'=>'设置为导航',
+    'yes'=>'是',
+    'no'=>'否',
     //首页
     'index'=>'首页',
     'index.title'=>'首页范例',

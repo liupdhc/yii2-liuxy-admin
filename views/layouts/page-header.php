@@ -21,6 +21,9 @@ $currentUser = \liuxy\admin\models\AdminUser::getUser();
         <ul class="nav navbar-nav">
             <?if($menus) {
                 foreach($menus as $menu){
+                    if ($menu != \liuxy\admin\models\Permission::NAV_YES) {
+                        continue;
+                    }
             ?>
             <li class="classic-menu-dropdown <?if($current['id'] == $menu['id']){ echo 'active';}?>">
                 <a href="javascript:void(0)" onclick="liuxy.redirect('<?=$menu['link']?>')">

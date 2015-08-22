@@ -2,6 +2,7 @@
 
 namespace liuxy\admin\widgets;
 
+use liuxy\admin\models\Permission;
 use yii\helpers\Html;
 
 /**
@@ -29,6 +30,9 @@ class Menu extends \yii\base\Widget {
         $content = '';
         if ($this->menuItems) {
             foreach ($this->menuItems as $item) {
+                if ($item['is_nav'] != Permission::NAV_YES) {
+                    continue;
+                }
                 $sub = '';
                 $cssOptions = [];
                 $opened = false;
@@ -93,6 +97,9 @@ class Menu extends \yii\base\Widget {
         $content = '';
         $ret = false;
         foreach ($item as $subitem) {
+            if ($subitem['is_nav'] != Permission::NAV_YES) {
+                continue;
+            }
             $substr = '';
             $cssOptions = [];
             $opened = false;

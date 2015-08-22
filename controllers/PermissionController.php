@@ -64,7 +64,6 @@ class PermissionController extends \liuxy\admin\components\Controller {
                 if ($perm->load($this->request)) {
                     $perm->is_leaf = Permission::LEAF_YES;
                     $perm->editable = 1;
-                    $perm->is_nav = Permission::NAV_NO;
                     $perm->status = Permission::STATUS_OK;
                     $perm->level = intval($parent['level']) + 1;
                     $perm->seq = 0;
@@ -112,14 +111,11 @@ class PermissionController extends \liuxy\admin\components\Controller {
         $perm = Permission::findOne([Permission::$pk=>$id]);
         if ($perm) {
             if ($perm->editable == 1) {
-                $updatedUser = false;
-                if ($perm->link != $this->get('link', '')) {
-                    $updatedUser = true;
-                }
                 $perm->name = $this->get('name', '');
                 $perm->description = $this->get('description', '');
                 $perm->link = $this->get('link', '');
                 $perm->icon = $this->get('icon', '');
+                $perm->is_nav = $this->get('is_nav', Permission::NAV_NO);
                 $perm->update_by = $this->user->username;
                 if (!$perm->update()) {
                     $this->setError($perm->getErrors());
