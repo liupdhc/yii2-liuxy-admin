@@ -19,11 +19,9 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.4"
-    },
-    "require-dev": {
-        "liuxy/yii2-extension": "*",
-        "liuxy/yii2-themes": "*"
+        "yiisoft/yii2": "~2.0.4",
+        "liuxy/yii2-extension": "dev-master",
+        "liuxy/yii2-themes": "dev-master"
     },
     "extra": {
         "bootstrap": "liuxy\\admin\\Bootstrap"
