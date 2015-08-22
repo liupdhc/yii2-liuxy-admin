@@ -22,6 +22,10 @@
         "liuxy/yii2-extension": "dev-master",
         "liuxy/yii2-themes": "dev-master"
     },
+    "require-dev": {
+        "yiisoft/yii2-extension": "*",
+        "yiisoft/yii2-themes": "*"
+    },
     "extra": {
         "bootstrap": "liuxy\\admin\\Bootstrap"
     }
