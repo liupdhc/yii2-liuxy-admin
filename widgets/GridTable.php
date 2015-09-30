@@ -8,6 +8,7 @@ namespace liuxy\admin\widgets;
 
 use yii\db\ActiveRecord;
 use liuxy\admin\components\helpers\Html;
+use yii\widgets\LinkPager;
 
 
 /**
@@ -70,6 +71,11 @@ class GridTable extends Widget {
     public $pages = null;
 
     /**
+     * @var bool 是否增加checkbox选中列
+     */
+    public $checkbox = false;
+
+    /**
      * (non-PHPdoc)
      * @see \yii\bootstrap\Widget::init()
      */
@@ -90,7 +96,7 @@ class GridTable extends Widget {
      */
     public function run() {
         echo "\n" . Html::endTag('tbody');
-        echo $this->renderFooter();
+        $this->renderFooter();
         echo "\n" . Html::endTag('table');
         echo "\n" . Html::endTag('div');
     }
@@ -107,6 +113,9 @@ class GridTable extends Widget {
             foreach($this->keys as $key) {
                 $val = '';
                 $tdContent = '';
+                if ($this->checkbox) {
+                    $tdContent .= Html::input('checkbox','','',['class'=>'checkboxes']);
+                }
                 if ($key === '') {
                     $tdContent = $tdOptions[''];
                     unset($tdOptions['']);
@@ -143,6 +152,11 @@ class GridTable extends Widget {
         if ($this->header) {
             $this->keys = array_keys($this->header);
             $renderContent = '';
+            if ($this->checkbox) {
+                $renderContent .= Html::tag('th',
+                    Html::input('checkbox','','',['class'=>'group-checkable','data-set'=>'#'.$this->id.'.checkboxes']),
+                    ['class'=>'table-checkbox']);
+            }
             foreach($this->header as $key=>$val) {
                 $renderContent .= Html::tag('th',$val);
             }
@@ -157,9 +171,8 @@ class GridTable extends Widget {
      */
     protected function renderFooter() {
         if ($this->pages) {
-
+            LinkPager::widget(['pagination'=>$this->pages]);
         }
-        return '';
     }
 
     /**
