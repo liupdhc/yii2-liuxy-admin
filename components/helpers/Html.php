@@ -16,6 +16,18 @@ use yii\base\InvalidParamException;
  * @package liuxy\admin\components\helpers
  */
 class Html extends \yii\helpers\Html {
+
+    const FILEINPUT_IMG = <<< HTML
+	<div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    </div>
+    <span class="btn default btn-file">
+        <span class="fileinput-new">更改</span>
+        <span class="fileinput-exists">更改</span>
+        <input type="file" name="{name}" class="fileupload" data-url="{uploadUrl}"/>
+    </span>
+    <span class="fileinput-filename"></span>&nbsp; <a href="#" class="close fileinput-exists" data-dismiss="fileinput"></a>
+HTML;
     /**
      * @inheritDoc
      */
@@ -104,6 +116,17 @@ class Html extends \yii\helpers\Html {
             $options['id'] = static::getInputId($model, $attribute);
         }
         return static::input($type, $name, $value, $options);
+    }
+
+    /**
+     * 生成可点击上传文件的元素内容
+     * @param $name 元素名称
+     * @param $url  上传地址
+     * @return string
+     */
+    public static function activeUploadFile($name, $url) {
+        return Html::tag('div', strtr(self::FILEINPUT_IMG,['{name}'=>$name,'{uploadUrl}'=>$url]),
+            ['class'=>'fileinput fileinput-new','data-provides'=>'fileinput']);
     }
 
     /**

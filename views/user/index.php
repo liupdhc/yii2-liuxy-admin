@@ -37,13 +37,14 @@ SelectAsset::register($this);
                 </div>
                 <?php
                 /**
-                 * @var $jtable \liuxy\themes\admin\widgets\GridTable
+                 * @var $jtable \liuxy\admin\widgets\GridTable
                  */
                 $jtable= GridTable::begin( [
                     'header' => [
                         'username'=>Module::t('user.username'),
                         'name'=>Module::t('user.name'),
                         'status'=>Module::t('status'),
+                        'trd_identifier'=>Module::t('user.third.identifier'),
                         ''=>Module::t('operation')
                     ]]);?>
                 <?php foreach($data['items'] as $item){
@@ -73,17 +74,25 @@ SelectAsset::register($this);
                 <?= $form->field('username')->textInput(['placeholder'=>Module::t('user.username')]) ?>
                 <?= $form->field('password')->passwordInput(['placeholder'=>Module::t('user.password')]) ?>
                 <?= $form->field('name')->textInput(['placeholder'=>Module::t('user.name')]) ?>
-                <?php echo Checkbox::widget([
-                    'name'=>'role',
-                    'label'=>Module::t('role.list.title'),
-                    'items'=>$data['roles']
-                ])?>
-                <?php echo Radio::widget([
-                    'name'=>'status',
-                    'label'=>Module::t('status'),
-                    'items'=>$data['status'],
-                    'values'=>[1]
-                ])?>
+                <?= $form->field('trd_identifier')->textInput(['placeholder'=>Module::t('user.third.identifier')]) ?>
+
+                <div class="form-group">
+                    <label class="control-label control-label"><?=Module::t('role.list.title')?></label>
+                    <?php echo Checkbox::widget([
+                        'name'=>'role',
+                        'items'=>$data['roles']
+                    ])?>
+                </div>
+                <div class="form-group">
+                    <label class="control-label control-label"><?=Module::t('status')?></label>
+                    <?php echo Radio::widget([
+                        'name'=>'status',
+                        'items'=>$data['status'],
+                        'values'=>[1]
+                    ])?>
+                </div>
+
+
 
                 <?php ActiveForm::end(); ?>
             </div>

@@ -21,7 +21,7 @@ $currentUser = \liuxy\admin\models\AdminUser::getUser();
         <ul class="nav navbar-nav">
             <?if($menus) {
                 foreach($menus as $menu){
-                    if ($menu != \liuxy\admin\models\Permission::NAV_YES) {
+                    if ($menu['is_nav'] != \liuxy\admin\models\Permission::NAV_YES) {
                         continue;
                     }
             ?>

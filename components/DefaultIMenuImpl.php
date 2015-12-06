@@ -154,7 +154,7 @@ abstract class DefaultIMenuImpl extends \yii\liuxy\ActiveRecord implements \liux
         if ($ret) {
             static::clearCache($this);
             if ($this->parent_id) {
-                $parent = self::findOne(['id' => $this->parent_id]);
+                $parent = self::findOne(['id'=>$this->parent_id]);
                 if ($parent) {
                     $parent->is_leaf = Permission::LEAF_NO;
                     $parent->update();

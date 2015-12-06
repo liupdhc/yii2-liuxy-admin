@@ -101,6 +101,8 @@ class Modal extends Widget {
      */
     public $operationButtons = false;
 
+    public $submitLabel = 'btn-submit';
+
 
     /**
      * Initializes the widget.
@@ -260,7 +262,7 @@ class Modal extends Widget {
          */
         if ($this->operationButtons === false) {
             $this->operationButtons = Html::tag('button',Module::t('close'),['data-dismiss'=>'modal','class'=>'btn btn-default']);
-            $this->operationButtons .= Html::tag('button',Module::t('save'),['id'=>'btn-submit','class'=>'btn green-meadow']);
+            $this->operationButtons .= Html::tag('button',Module::t('save'),['id'=>$this->submitLabel,'class'=>'btn green-meadow']);
             $this->footer = $this->operationButtons;
         }
     }

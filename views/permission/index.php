@@ -60,16 +60,20 @@ JsTreeAsset::register($this);
                 <?= $form->field('parent_id')->hiddenInput(['value'=>1]) ?>
                 <?= $form->field('name')->textInput(['placeholder'=>Module::t('name')]) ?>
                 <?= $form->field('link')->textInput(['placeholder'=>Module::t('link'),'value'=>'#']) ?>
-                <?php echo Radio::widget([
-                    'name'=>'is_nav',
-                    'label'=>Module::t('navigation'),
-                    'labelOptions'=>['class'=>'col-md-3'],
-                    'items'=>[
-                        \liuxy\admin\models\Permission::NAV_YES=>Module::t('yes'),
-                        \liuxy\admin\models\Permission::NAV_NO=>Module::t('no')
-                    ],
-                    'values'=>[\liuxy\admin\models\Permission::NAV_NO]
-                ])?>
+
+                <div class="form-group">
+                    <label class="control-label control-label"><?=Module::t('navigation')?></label>
+                    <?php echo Radio::widget([
+                        'name'=>'is_nav',
+                        'items'=>[
+                            \liuxy\admin\models\Permission::NAV_YES=>Module::t('yes'),
+                            \liuxy\admin\models\Permission::NAV_NO=>Module::t('no')
+                        ],
+                        'values'=>[\liuxy\admin\models\Permission::NAV_NO]
+                    ])?>
+                </div>
+
+
                 <?= $form->field('description')->textInput(['placeholder'=>Module::t('description')]) ?>
                 <?= $form->field('icon')->textInput(['placeholder'=>Module::t('description'),
                     'value'=>'icon-list',

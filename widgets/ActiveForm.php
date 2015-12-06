@@ -88,7 +88,7 @@ class ActiveForm extends Widget {
      *
      * @param       $attribute
      * @param array $options
-     * @return \liuxy\themes\admin\widgets\ActiveField
+     * @return \liuxy\admin\widgets\ActiveField
      */
     public function field($attribute, $options = []) {
         $config = $this->fieldConfig;

@@ -19,7 +19,7 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.4",
-        "liuxy/yii2-extension": "~1.0.0",
+        "liuxy/yii2-extension": "~1.0.1",
         "liuxy/yii2-themes": "~1.0.0"
     },
     "extra": {

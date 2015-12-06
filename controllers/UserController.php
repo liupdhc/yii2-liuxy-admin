@@ -57,6 +57,7 @@ class UserController extends Controller {
              */
             $user = new AdminUser();
             if ($user->load($this->request)) {
+                $user->trd_identifier = $this->get('trd_identifier','');
                 $user->status = AdminUser::STATUS_OK;
                 $user->password_prefix = md5(uniqid(mt_rand(), true));
                 $user->password = md5($user->password_prefix.$user->password);
@@ -82,6 +83,7 @@ class UserController extends Controller {
             $user = AdminUser::findOne(['id'=>$id]);
             if ($user) {
                 $user->name = $this->get('name', '');
+                $user->trd_identifier = $this->get('trd_identifier','');
                 if ($user->username === 'admin' && $this->user->id !== $user->id) {
                     $this->setError(Module::t('error.admin.onlyedit'));
                     return false;

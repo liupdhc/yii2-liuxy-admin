@@ -18,17 +18,6 @@ use liuxy\admin\assets\plugins\jquery\ICheckAsset;
  */
 class Checkbox extends Widget {
 
-    /**
-     * 复选框的元素标签
-     * @var string
-     */
-    public $label = null;
-    /**
-     * 标签属性配置
-     * @var array
-     */
-    public $labelOptions = ['class' => 'control-label'];
-
     public $options = ['class'=>'input-group'];
 
     /**
@@ -83,14 +72,7 @@ class Checkbox extends Widget {
      */
     public function run() {
         $content = '';
-        if ($this->label) {
-            if (isset($this->labelOptions['class'])) {
-                $this->labelOptions['class'] = 'control-label '.$this->labelOptions['class'];
-            } else {
-                Html::addCssClass($this->labelOptions,'col-md-4');
-            }
-            $content.=Html::tag('label',$this->label,$this->labelOptions);
-        }
+
         $content.=Html::beginTag('div',$this->options);
         $content.=Html::beginTag('div',['id'=>$this->name.'-group','class'=>$this->inline ? 'icheck-inline' : 'icheck-list']);
         if ($this->items) {
@@ -103,7 +85,7 @@ class Checkbox extends Widget {
         }
         $content.=Html::endTag('div');
         $content.=Html::endTag('div');
-        echo Html::tag('div', $content, ['class'=>'form-group']);
+        echo $content;
     }
 
     /**

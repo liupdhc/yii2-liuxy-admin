@@ -20,7 +20,9 @@ class PagesScriptAsset extends AbstractAsset {
 
     protected $plugin_js = [
         'scripts/admin.min.js',
-        'scripts/locales/admin-lang.zh-CN.min.js'
+        'scripts/locales/admin-lang.zh-CN.min.js',
+        'scripts/locales/bootstrap-datepicker.zh-CN.js',
+        'scripts/locales/bootstrap-datetimepicker.zh-CN.js'
     ];
 
     /**

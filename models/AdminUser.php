@@ -19,6 +19,7 @@ use yii\base\Security;
  * @property string $update_by
  * @property integer $update_time
  * @property string $ext1
+ * @property string $trd_identifier
  */
 class AdminUser extends \yii\liuxy\ActiveRecord {
 
@@ -43,6 +44,7 @@ class AdminUser extends \yii\liuxy\ActiveRecord {
             [['username', 'password_prefix', 'password', 'insert_by', 'update_by'], 'string', 'max' => 32],
             [['name'], 'string', 'max' => 100],
             [['ext1'], 'string', 'max' => 1000],
+            [['trd_identifier'], 'string', 'max' => 50],
             [['username'], 'unique']
         ];
     }
@@ -63,6 +65,7 @@ class AdminUser extends \yii\liuxy\ActiveRecord {
             'update_by' => '最后更新者',
             'update_time' => '最后更新时间',
             'ext1' => '扩展属性',
+            'trd_identifier' => '第三方标识',
         ];
     }
 

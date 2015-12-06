@@ -59,6 +59,7 @@ return [
     //个人页
     'user.info'=>'个人信息',
     'user.logout'=>'退出',
+    'user.third.identifier'=>'第三方帐号',
     //权限
     'perm.title'=>'权限管理',
     'perm.list.title'=>'权限列表',
