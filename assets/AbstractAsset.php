@@ -7,6 +7,7 @@
 
 namespace liuxy\admin\assets;
 
+use Yii;
 use yii\web\AssetBundle;
 
 abstract class AbstractAsset extends AssetBundle {
@@ -40,5 +41,11 @@ abstract class AbstractAsset extends AssetBundle {
         foreach($this->plugin_css_options as $item) {
             $this->cssOptions[] = $item;
         }
+    }
+
+    public static function hash($filePath)
+    {
+        $path = (is_file($filePath) ? dirname($filePath) : $filePath) . filemtime($filePath);
+        return sprintf('%x', crc32($path . Yii::getVersion()));
     }
 }
