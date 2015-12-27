@@ -83,7 +83,7 @@ class RoleController extends \liuxy\admin\components\Controller {
      */
     public function actionGet() {
         $id = $this->get('id',0);
-        $role = Role::findeByCache($id);
+        $role = Role::findByCache($id);
         $this->setResponseData('data',$role);
     }
 
@@ -92,7 +92,7 @@ class RoleController extends \liuxy\admin\components\Controller {
      */
     public function actionDelete() {
         $id = $this->get('id',0);
-        $role = Role::findeByCache($id);
+        $role = Role::findByCache($id);
         if ($role) {
             if ($role['id'] == 1) {
                 $this->setError(Module::t('error.role.power.edit'));
