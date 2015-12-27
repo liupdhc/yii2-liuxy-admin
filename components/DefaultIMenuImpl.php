@@ -75,7 +75,7 @@ abstract class DefaultIMenuImpl extends \yii\liuxy\ActiveRecord implements \liux
      */
     public static function getAllSub($parentId = 0, $filter = []) {
         // TODO: Implement getAllSub() method.
-        $category = self::findeByCache($parentId);
+        $category = self::findByCache($parentId);
         if ($category) {
             $subItems = static::getSub($category[static::$pk], $filter);
             if ($subItems) {

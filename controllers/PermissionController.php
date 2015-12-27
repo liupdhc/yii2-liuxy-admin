@@ -42,7 +42,7 @@ class PermissionController extends \liuxy\admin\components\Controller {
         } else {
             $data = $generator->getDefault();
         }
-        $this->setResponseData('item',Permission::findeByCache($id));
+        $this->setResponseData('item',Permission::findByCache($id));
 
         $this->setResponseData('data',$data);
     }
@@ -52,7 +52,7 @@ class PermissionController extends \liuxy\admin\components\Controller {
      */
     public function actionCreate() {
         $parentId = $this->get('parent_id', 1);
-        $parent = Permission::findeByCache($parentId);
+        $parent = Permission::findByCache($parentId);
         if ($parent) {
             if ($parent['level'] >= Permission::getLimit()) {
                 $this->setError(Module::t('error.perm.level.max'));
@@ -89,7 +89,7 @@ class PermissionController extends \liuxy\admin\components\Controller {
     public function actionGet() {
         $id = $this->get('id', 0);
         if ($id) {
-            $perm = Permission::findeByCache($id);
+            $perm = Permission::findByCache($id);
             if ($perm) {
                 $this->setResponseData('data',$perm);
             } else {

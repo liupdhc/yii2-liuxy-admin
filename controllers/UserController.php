@@ -117,7 +117,7 @@ class UserController extends Controller {
      */
     public function actionGet() {
         $id = $this->get('id', 0);
-        $user = AdminUser::findeByCache($id);
+        $user = AdminUser::findByCache($id);
         if ($user) {
             $roles = AdminUserRole::findAllArray(['user_id'=>$id]);
             if ($roles) {
