@@ -18,9 +18,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.6"
-    },
-    "require-dev": {
+        "yiisoft/yii2": "~2.0.6",
         "liuxy/yii2-extension": "dev-master",
         "liuxy/yii2-themes": "dev-master"
     },
