@@ -10,8 +10,10 @@
  */
 
 use yii\helpers\Html;
-
-$this->title = $name; ?>
+if (isset($name)) {
+	$this->title = $name;
+}
+ ?>
 <div class="row">
 	<div class="col-md-12 page-500">
 		<div class="number">
@@ -21,7 +23,12 @@ $this->title = $name; ?>
 			<div class="alert alert-danger">
 				<?php
 				if(YII_DEBUG) {
-					echo $exception;
+					if (isset($exception) && !empty($exception)) {
+						echo $exception;
+					} else {
+						echo \yii\helpers\VarDumper::dumpAsString(Yii::$app->getErrorHandler()->exception);
+					}
+
 				} else {
 					echo nl2br(Html::encode($msg));
 				}

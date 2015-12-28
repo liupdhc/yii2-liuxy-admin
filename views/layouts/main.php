@@ -31,11 +31,11 @@ PagesScriptAsset::register($this);?>
 	<body class="page-header-fixed page-quick-sidebar-over-content page-style-square">
     <?php $this->beginBody();?>
 
-	<?= $this->render('//layouts/page-header',['menus'=>$topMenu,'current'=>$topItem]) ?>
+	<?= $this->render('//layouts/page-header',['menus'=>isset($topMenu) ? $topMenu : false,'current'=>isset($topItem) ? $topItem : false]) ?>
 	<div class="clearfix"></div>
 	<!-- BEGIN CONTAINER -->
 	<div class="page-container">
-		<?= $this->render('//layouts/sidebar-menu',['menus'=>$subMenu,'current'=>$current]) ?>
+		<?= $this->render('//layouts/sidebar-menu',['menus'=>isset($subMenu) ? $subMenu : false,'current'=>isset($current) ? $current : false]) ?>
 		<!-- BEGIN CONTENT -->
 		<div class="page-content-wrapper">
 			<div class="page-content"">
